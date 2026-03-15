@@ -1,0 +1,59 @@
+# Terra Cotta - Starship Theme
+
+format = """
+[┌─](bold #333333)[$username](bold #CF503A) [$directory](bold #EEE2D3)[$git_branch$git_status](bold #6F8695)
+[└─](bold #333333)[$character]($style) """
+
+[username]
+style_user = "bold #CF503A"
+show_always = true
+format = "[$user]($style)"
+
+[hostname]
+style = "bold #6F8695"
+ssh_only = false
+
+[directory]
+style = "#EEE2D3"
+truncation_length = 3
+truncate_to_repo = true
+read_only = " 󰌾"
+read_only_style = "#CF503A"
+
+[git_branch]
+symbol = " "
+style = "#6F8695"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "#CF503A"
+conflicted = "󰞇 "
+ahead = "⇡$count "
+behind = "⇣$count "
+diverged = "⇕ "
+untracked = "? "
+modified = "! "
+staged = "+ "
+deleted = "✘ "
+
+[character]
+success_symbol = "[❯](#CF503A)"
+error_symbol = "[❯](#241D19)"
+vimcmd_symbol = "[❮](#6F8695)"
+
+[cmd_duration]
+style = "dimmed #6F8695"
+format = "took [$duration]($style) "
+min_time = 2_000
+
+[python]
+style = "#6F8695"
+symbol = " "
+
+[rust]
+style = "#CF503A"
+symbol = " "
+
+[nodejs]
+style = "#EEE2D3"
+symbol = " "
