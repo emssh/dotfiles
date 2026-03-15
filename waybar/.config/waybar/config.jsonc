@@ -1,0 +1,85 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 10,
+    "width": 1899,
+    "height": 30,
+    "output": "DP-1",
+    //MODULES//
+    "modules-left": [
+        "pulseaudio",
+        "network",
+        "memory"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/prayerbar",
+        "clock",
+        "custom/logout"
+    ],
+    "clock": {
+        "interval": 60,
+        "format": "󱑍 {:%I:%M}",
+        "max-length": 25
+    },
+    //MODULE SETUP//
+    "pulseaudio": {
+        "format": "{icon}{volume}",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "󰕿",
+        "format-icons": {
+            "headphone": " ",
+            "headset": " ",
+            "phone": " ",
+            "phone-muted": " ",
+            "portable": " ",
+            "default": [
+                "󰖀 | ",
+                "󰕾 | "
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ]
+    },
+    "custom/logout": {
+        "format": "󰐥",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+    "network": {
+        "interface": "wlp41s0",
+        "format": "{ifname}",
+        "format-wifi": "󰖩 {signalStrength}%",
+        "format-ethernet": "󰈀  {bandwidthDownBits}",
+        "format-disconnected": "", //An empty format will hide the module.
+        "max-length": 50,
+        //"tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)"
+        //"tooltip-format-ethernet": "{ifname} ",
+        //"tooltip-format-disconnected": "Disconnected",
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "active": "",
+        "default": "",
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+    "memory": {
+        "interval": 30,
+        "format": "  {used:0.1f}G/{total:0.1f}G"
+    },
+    "custom/prayerbar": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 60,
+        "exec": "/home/emmad/.local/bin/prayerbar --city Milton --country Canada --method 2 --ampm",
+        "return-type": "json"
+    }
+}
