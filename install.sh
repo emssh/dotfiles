@@ -12,6 +12,7 @@ PACKAGES=(
     hypr
     waybar
     kitty
+    starship
     rofi
     nwg-look
     thunar
