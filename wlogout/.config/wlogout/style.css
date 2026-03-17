@@ -1,0 +1,58 @@
+* {
+	background-image: none;
+	box-shadow: none;
+	color: #EEE2D3;
+}
+
+window {
+	background-color: rgba(36, 29, 25, 0.5);
+	
+	font-size: 14px;
+}
+
+button {
+	border-radius: 5;
+	border-color: #241D19;
+	text-decoration-color: #EEE2D3;
+	color: #EEE2D3;
+	background-color: #241D19;
+	border-style: solid;
+	border-width: 1px;
+	margin: 2px;
+	min-width: 50px;
+    min-height: 50px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 15%;
+}
+
+button:focus,
+button:active,
+button:hover {
+	background-color: #CC5341;
+	outline-style: none;
+}
+
+#lock {
+	background-image: url("/home/emmad/.config/wlogout/icons/lock.png");
+}
+
+#logout {
+	background-image: url("/home/emmad/.config/wlogout/icons/logout.png");
+}
+
+#suspend {
+	background-image: url("/home/emmad/.config/wlogout/icons/suspend.png");
+}
+
+#hibernate {
+	background-image: url("/home/emmad/.config/wlogout/icons/hibernate.png");
+}
+
+#shutdown {
+	background-image: url("/home/emmad/.config/wlogout/icons/shutdown.png");
+}
+
+#reboot {
+	background-image: url("/home/emmad/.config/wlogout/icons/reboot.png");
+}
