@@ -1,0 +1,71 @@
+@define-color base00 #262626;
+@define-color base01 #3a3a3a;
+@define-color base02 #4e4e4e;
+@define-color base03 #8a8a8a;
+@define-color base04 #949494;
+@define-color base05 #dab997;
+@define-color base06 #d5c4a1;
+@define-color base07 #ebdbb2;
+@define-color base08 #d75f5f;
+@define-color base09 #ff8700;
+@define-color base0A #ffaf00;
+@define-color base0B #afaf00;
+@define-color base0C #85ad85;
+@define-color base0D #83adad;
+@define-color base0E #d485ad;
+@define-color base0F #d65d0e;
+
+
+* {	
+	color: @base07;
+	font-family: DepartureMono;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+}
+
+window#waybar {
+background-color: transparent;}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#clock
+{
+	padding: 8px;
+	background: @base01;
+	color: @base0A;
+}
+
+#backlight,
+#pulseaudio,
+#battery,
+#battery#bat2,
+#tray
+{
+	padding: 8px;
+	background: @base01;
+}
+
+#workspaces {
+	margin: 0px;
+	padding: 0px 5px;
+	background: @base01;
+}
+
+#workspaces button.focused, #workspaces button.active {
+	background-color: @base0F;
+	color: @base0;
+	margin: 0px;
+	border-radius: 0px;
+}
+
+#battery.critical:not(.charging) {
+    color: @base08;
+}
+
+#battery.charging, #battery.plugged {
+    color: @base0C;
+}
