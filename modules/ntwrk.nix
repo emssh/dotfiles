@@ -8,6 +8,11 @@
 	networking.networkmanager.enable = true;
 
 	systemd.services.NetworkManager-wait-online.wantedBy = lib.mkForce [];
+	
+	hardware.bluetooth = {
+		enable = true;
+		powerOnBoot = false;
+	};
 
 	networking.firewall = {
 		enable = true;

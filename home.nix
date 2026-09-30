@@ -16,11 +16,15 @@ in
 
 	home.username = "emmad";
 	home.homeDirectory = "/home/emmad";
+	programs.ssh = {
+		enable = true;
+		addKeysToAgent = "yes";
+	};
 	programs.git = {
 		enable = true;
 		settings.user = {
 			name = "Emmad Gilani";
-			email = "emmadgilani11@gmail.com";
+			email = "emmadgilani11@gmail.com"; 
 		};
 	};
 	home.stateVersion = "26.05";
@@ -39,5 +43,10 @@ in
 	};
 
 	stylix.targets.waybar.enable = false;
-	programs.btop.enable = true;	
+	programs.btop.enable = true;
+
+	programs.wlogout = {
+		enable = true;
+
+	};
 }
