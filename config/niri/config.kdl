@@ -5,6 +5,11 @@
 
 spawn-at-startup "waybar"
 
+cursor {
+	xcursor-theme "Bibata-Modern-Classic"
+	xcursor-size 16
+}
+
 prefer-no-csd
 // Input device configuration.
 // Find the full list of options on the wiki:

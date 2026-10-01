@@ -9,6 +9,10 @@
 		base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
 		polarity = "dark";
 		
+		cursor = {
+			package = pkgs.bibata-cursors;
+			name = "Bibata-Modern-Classic";
+		};
 		targets.chromium.enable = true;
 		
 		# Font Style #
