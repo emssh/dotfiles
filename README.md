@@ -1,2 +1,7 @@
-# dotfiles
-NixOS dotfiles including all my configs as well.
+# NixOS Dotfiles
+
+Includes:
+- Stylix
+- Waybar Config
+- Niri Config
+- Kitty (Minimal)
