@@ -24,6 +24,7 @@
 		
 		# Apps #
 		yazi
+		zathura
 		obsidian
 		brave
 		localsend
