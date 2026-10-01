@@ -20,7 +20,7 @@ in
 		enableDefaultConfig = false;
 		enable = true;
 		settings."*" = {
-			AddKeyToAgent = "yes";
+			AddKeysToAgent = "yes";
 		};
 		
 	};
