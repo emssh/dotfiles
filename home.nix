@@ -1,19 +1,10 @@
 { config, pkgs, inputs, ... }:
 
+
 let
-dot = "/home/emmad/dotfiles/config";
-link = path: config.lib.file.mkOutOfStoreSymlink "${dot}/${path}";
+radius = "4px";
 in
-
 {
-	xdg.configFile = {
-	"waybar/config".source = link "waybar/config";
-	"waybar/style.css".source = link "waybar/style.css";
-	"niri/config.kdl".source = link "niri/config.kdl";
-	"kitty/kitty.conf".source = link "kitty/kitty.conf";
-	};
-
-
 	home.username = "emmad";
 	home.homeDirectory = "/home/emmad";
 	programs.ssh = {
@@ -22,7 +13,7 @@ in
 		settings."*" = {
 			AddKeysToAgent = "yes";
 		};
-		
+
 	};
 	services.ssh-agent.enable = true;
 	programs.git = {
@@ -34,24 +25,39 @@ in
 	};
 	home.stateVersion = "26.05";
 
-	home.packages = [ pkgs.waybar ];
-
 
 	programs.neovim.enable = true;
 
-	programs.rofi = {
-		enable = true;
-		settings = {
-			show-icons = true;
+	stylix = {
+		targets = {
+			gtk = {
+				extraCss = ''
+					/* Window frame */
+					window.csd,
+				window.csd decoration {
+					border-radius: ${radius};
+				}
+
+				/* Controls and containers */
+				button,
+					entry,
+					spinbutton,
+					dropdown,
+					searchbar,
+					button,
+					box,
+					tooltip,
+					popover > contents,
+					modelbutton,
+					.card,
+					.boxed-list,
+					.navigation-sidebar > row,
+					gridview > child,
+					listview > row {
+						border-radius: ${radius};
+					}
+				'';
+			};
 		};
-		plugins = [ pkgs.rofi-power-menu ];
-	};
-
-	stylix.targets.waybar.enable = false;
-	programs.btop.enable = true;
-
-	programs.wlogout = {
-		enable = true;
-
 	};
 }

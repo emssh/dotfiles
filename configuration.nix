@@ -4,19 +4,19 @@
 	imports =
 		[
 		./hardware-configuration.nix
-		./modules/ntwrk.nix
-		./modules/pkgs.nix
-		./modules/stylix.nix
-		./modules/vidaud.nix
-		./modules/bat.nix
+			./modules/ntwrk.nix
+			./modules/pkgs.nix
+			./modules/stylix.nix
+			./modules/vidaud.nix
+			./modules/bat.nix
 		];
 
 # systemd-boot EFI boot 
 	boot = {
-	kernelParams = [ "quiet" ];
-	loader.systemd-boot.enable = true;
-	loader.efi.canTouchEfiVariables = true;
-	loader.timeout = 0;
+		kernelParams = [ "quiet" ];
+		loader.systemd-boot.enable = true;
+		loader.efi.canTouchEfiVariables = true;
+		loader.timeout = 0;
 	};
 # Set your time zone.
 	time.timeZone = "America/Toronto";
@@ -25,8 +25,16 @@
 # networking.proxy.default = "http://user:password@proxy:port/";
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-	services.displayManager = {
-		ly.enable = true;
+	services.displayManager.dms-greeter = {
+		enable = true;
+		compositor.name = "niri";
+
+		configHome = "/home/emmad";
+		
+		logs = {
+    			save = true; 
+    			path = "/tmp/dms-greeter.log";
+  		};
 	};
 
 
@@ -35,25 +43,12 @@
 	users.users.emmad = {
 		isNormalUser = true;
 		extraGroups = [ "wheel" ]; 
-			packages = with pkgs; [
+		packages = with pkgs; [
 			tree
-			];
+		];
 		shell = pkgs.fish;
 	};
-		
-	
-	programs.fish = {
-		enable = true;
-		shellInit = ''
-			set -g fish_greeting ""
-			'';
-	};
 
-	
-	programs.niri.enable = true;   
-	
-
-	programs.firefox.enable = true;
 
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
@@ -61,7 +56,6 @@
 # programs.gnupg.agent = {
 #   enable = true;
 #   enableSSHSupport = true;
-# };
 
 # List services that you want to enable:
 

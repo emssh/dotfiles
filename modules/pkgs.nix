@@ -6,8 +6,31 @@
 
 	xdg.mime.enable = true;
 	xdg.menus.enable = true;
+
+	programs.fish = {
+		enable = true;
+		shellInit = ''
+			set -g fish_greeting ""
+			'';
+	};
+
+	programs.starship = {
+		enable = true;
+		presets = ["nerd-font-symbols"];
+	};
+
+	programs.niri.enable = true;   
+
+	programs.firefox.enable = true;
 	
-	environment.etc."/xdg/menus/applications.menu".text = builtins.readFile "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+	programs.dms-shell = {
+		enable = true;
+
+		systemd = {
+			enable = true;
+			restartIfChanged = true;
+			};
+	};
 
 	environment.systemPackages = with pkgs; [
 # Terminal #
@@ -18,42 +41,30 @@
 # Utils #
 			fzf
 			wl-clipboard
-			wget
 			brightnessctl
-			wlsunset
-			swaylock
-			mako
-			swaybg
+			wget
 			xwayland-satellite
 			speedtest-cli
 			android-tools
 			go-mtpfs
+			xdg-user-dirs
+			xdg-user-dirs-gtk
 
 # Apps #
-			yazi
+			nautilus
+			nsxiv
+			eog
+			mpv
 			zathura
 			obsidian
 			brave
 			localsend
 			zed-editor
 			inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+
+# Communication #
 			discord
 			signal-desktop
-
-# Dolphin File Manager & Dependinces #
-			kdePackages.dolphin
-			kdePackages.kio
-			kdePackages.kdf
-			kdePackages.kio-fuse
-			kdePackages.kio-extras
-			kdePackages.kio-admin
-			kdePackages.qtwayland
-			kdePackages.plasma-integration
-			kdePackages.kdegraphics-thumbnailers
-			kdePackages.breeze-icons
-			kdePackages.qtsvg
-			kdePackages.kservice
-			shared-mime-info
 
 			];
 
@@ -64,8 +75,7 @@
 
 	fonts.packages = with pkgs; [
 		nerd-fonts.departure-mono
-			nerd-fonts.fira-code
-			wine64Packages.fonts
+		nerd-fonts.fira-code
+		wine64Packages.fonts
 	];
-
 }

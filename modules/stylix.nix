@@ -6,15 +6,22 @@
 		enable = true;
 		
 		# Base16 Color Scheme #
-		base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-pale.yaml";
+		base16Scheme = "/home/emmad/dotfiles/modules/amoled-black.yaml";
 		polarity = "dark";
 		
 		cursor = {
 			package = pkgs.bibata-cursors;
 			name = "Bibata-Modern-Classic";
-			size = 16;
+			size = 12;
 		};
-		targets.chromium.enable = true;
+		
+		icons = {
+			enable = true;
+			package = pkgs.kora-icon-theme;
+			dark = "kora";
+			light = "kora-light";
+
+		};
 		
 		# Font Style #
 		fonts = {
