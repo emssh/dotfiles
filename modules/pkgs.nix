@@ -40,6 +40,7 @@
 
 # Utils #
 			fzf
+			cargo
 			wl-clipboard
 			brightnessctl
 			wget
@@ -49,17 +50,18 @@
 			go-mtpfs
 			xdg-user-dirs
 			xdg-user-dirs-gtk
-
+			bitwarden-cli
 # Apps #
 			nautilus
-			nsxiv
 			eog
 			mpv
 			zathura
+			bitwarden-desktop
 			obsidian
 			brave
 			localsend
 			zed-editor
+			parsec-bin
 			inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
 # Communication #
