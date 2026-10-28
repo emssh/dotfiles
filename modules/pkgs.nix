@@ -12,6 +12,11 @@
 		shellInit = ''
 			set -g fish_greeting ""
 			'';
+		shellAliases = {
+			nixsw = "sudo nixos-rebuild switch --impure --flake ~/dotfiles#quicksilver";
+			nixup = "nix flake update";
+		};
+
 	};
 
 	programs.starship = {
@@ -22,19 +27,19 @@
 	programs.niri.enable = true;   
 
 	programs.firefox.enable = true;
-	
+
 	programs.dux-shell = {
 		enable = true;
 
 		systemd = {
 			enable = true;
 			restartIfChanged = true;
-			};
+		};
 	};
 
 	environment.systemPackages = with pkgs; [
 # Terminal #
-			kitty
+		kitty
 			fastfetch
 			vim
 
@@ -77,7 +82,7 @@
 
 	fonts.packages = with pkgs; [
 		nerd-fonts.departure-mono
-		nerd-fonts.fira-code
-		wine64Packages.fonts
+			nerd-fonts.fira-code
+			wine64Packages.fonts
 	];
 }
