@@ -39,9 +39,10 @@
 
 	environment.systemPackages = with pkgs; [
 # Terminal #
-		kitty
+			kitty
 			fastfetch
 			vim
+			lmstudio-bionic
 
 # Utils #
 			fzf
@@ -68,7 +69,8 @@
 			zed-editor
 			parsec-bin
 			inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-
+			inputs.hermes-agent.packages.${pkgs.stdenv.hostPlatform.system}.desktop
+			zotero
 # Communication #
 			discord
 			signal-desktop

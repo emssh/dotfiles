@@ -15,9 +15,11 @@
       			url = "github:youwen5/zen-browser-flake";
       			inputs.nixpkgs.follows = "nixpkgs";
    		};
+
+		hermes-agent.url = "github:NousResearch/hermes-agent";
 	};
 
-	outputs = { nixpkgs, home-manager, stylix, zen-browser, ... }@inputs: let
+	outputs = { nixpkgs, home-manager, stylix, zen-browser, hermes-agent, ... }@inputs: let
 		inherit (nixpkgs) lib; 
 
 	in {
@@ -28,6 +30,7 @@
 				stylix.nixosModules.stylix
 					./configuration.nix
 					home-manager.nixosModules.home-manager
+					hermes-agent.nixosModules.default
 					{
 						home-manager = {
 							useGlobalPkgs = true;
