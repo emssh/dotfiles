@@ -7,6 +7,18 @@
 	xdg.mime.enable = true;
 	xdg.menus.enable = true;
 
+	services.displayManager.noctalia-greeter = {
+		enable = true;
+		package = pkgs.noctalia-greeter;
+		cursorTheme = {
+			name = "Bibata-Modern-Classic";
+			package = pkgs.bibata-cursors;
+		};
+		settings = {
+			appearance.hide_logo = true;
+		};
+	};
+
 	programs.fish = {
 		enable = true;
 		shellInit = ''
@@ -28,18 +40,20 @@
 
 	programs.firefox.enable = true;
 
-	programs.dux-shell = {
+	programs.noctalia = {
 		enable = true;
-
+		package = pkgs.noctalia;
+		recommendedServices.enable = true;
 		systemd = {
 			enable = true;
-			restartIfChanged = true;
+			target = "graphical-session.target";
 		};
 	};
 
 	environment.systemPackages = with pkgs; [
 # Terminal #
 			kitty
+			quickshell
 			fastfetch
 			vim
 			lmstudio-bionic
@@ -70,13 +84,14 @@
 			parsec-bin
 			inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 			inputs.hermes-agent.packages.${pkgs.stdenv.hostPlatform.system}.desktop
-			zotero
+			jabref
 # Communication #
 			discord
 			signal-desktop
 
 			];
 
+	programs.nix-ld.enable = true;
 
 	nixpkgs.config.allowUnfree = true;
 
