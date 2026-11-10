@@ -13,29 +13,26 @@
 
 # systemd-boot EFI boot 
 	boot = {
-		kernelParams = [ "quiet" ];
-		loader.systemd-boot.enable = true;
-		loader.efi.canTouchEfiVariables = true;
-		loader.timeout = 0;
+		kernelParams = [ 
+			"quiet" 
+			"rd.udev.log_level=3"
+      			"rd.systemd.show_status=auto" 
+		];
+		loader = { 
+			systemd-boot.enable = true;
+			efi.canTouchEfiVariables = true;
+			timeout = 0;
+		};
+		plymouth = {
+			enable = true;
+		};
 	};
 # Set your time zone.
 	time.timeZone = "America/Toronto";
 
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
-# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-	services.displayManager.dux-greeter = {
-		enable = true;
-		compositor.name = "niri";
-
-		configHome = "/home/emmad";
-		
-		logs = {
-    			save = true; 
-    			path = "/tmp/dms-greeter.log";
-  		};
-	};
+# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";`
 
 
 	services.libinput.enable = true;
