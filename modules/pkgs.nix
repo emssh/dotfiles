@@ -7,16 +7,15 @@
 	xdg.mime.enable = true;
 	xdg.menus.enable = true;
 
-	services.displayManager.noctalia-greeter = {
+	services.displayManager.dux-greeter = {
 		enable = true;
-		package = pkgs.noctalia-greeter;
-		cursorTheme = {
-			name = "Bibata-Modern-Classic";
-			package = pkgs.bibata-cursors;
-		};
-		settings = {
-			appearance.hide_logo = true;
-		};
+		package = pkgs.dux-greeter;
+		configHome = "/home/emmad";
+		configFiles = [
+  			"/home/user/.config/dms/settings.json"
+  			"/home/user/.local/state/dms/session.json"
+		];
+		compositor.name = "niri";
 	};
 
 	programs.fish = {
@@ -40,15 +39,17 @@
 
 	programs.firefox.enable = true;
 
-	programs.noctalia = {
+	programs.dux-shell = {
+
 		enable = true;
-		package = pkgs.noctalia;
-		recommendedServices.enable = true;
+		package = pkgs.dux-shell;
 		systemd = {
 			enable = true;
 			target = "graphical-session.target";
+			restartIfChanged = true;
 		};
 	};
+
 
 	environment.systemPackages = with pkgs; [
 # Terminal #
